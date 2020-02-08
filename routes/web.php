@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/**
+ * フォルダの作成
+ */
+Route::get('/video', 'VideoController@index')->name('videos.index');
+Route::get('/video/create', 'VideoController@create')->name('videos.create');
+Route::post('/video/create', 'VideoController@s3_upload');
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
